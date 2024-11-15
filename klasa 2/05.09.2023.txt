@@ -1,0 +1,3 @@
+C:\Users\egzamin>dotnet --version
+
+C:\Users\egzamin>dotnet --info

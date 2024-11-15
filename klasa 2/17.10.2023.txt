@@ -1,0 +1,78 @@
+/*Console.Write("podaj bok a: ");
+double a = double.Parse(Console.ReadLine());
+Console.Write("podaj bok b: ");
+double b = double.Parse(Console.ReadLine());
+Console.Write("podaj bok c: ");
+double c = double.Parse(Console.ReadLine());
+if (double.TryParse(Console.ReadLine(), out a))
+{
+    Console.WriteLine(a);
+}
+else
+{
+    Console.WriteLine("bledne dane podano od urzytkownika");
+}
+*/
+bool iscorrect = false;
+do
+{
+    Console.Write("Podaj a: ");
+    double a;
+    while (!double.TryParse(Console.ReadLine(), out a) || a <= 0)
+    {
+        Console.WriteLine("Podaj poprawne dane");
+        Console.Write("Podaj a: ");
+    }
+
+    Console.Write("Podaj b: ");
+    double b;
+    while (!double.TryParse(Console.ReadLine(), out b) || b <= 0)
+    {
+        Console.WriteLine("Podaj poprawne dane");
+        Console.Write("Podaj b: ");
+    }
+
+    Console.Write("Podaj c: ");
+    double c;
+    while (!double.TryParse(Console.ReadLine(), out c) || c <= 0)
+    {
+        Console.WriteLine("Podaj poprawne dane");
+        Console.Write("Podaj c: ");
+    }
+
+    if (Istriangle(a, b, c))
+    {
+        iscorrect = true;
+        Console.OutputEncoding = System.Text.Encoding.Unicode;
+        Console.WriteLine("pole trojkata o bokach {0} {1} {2} wynosi: {3:F4}cm\u00B2", a, b, c, calculatep(a, b, c));
+        Console.OutputEncoding = System.Text.Encoding.Default;
+    }
+    else
+    {
+        Console.WriteLine("slaby ten twoj trojkata");
+        Thread.Sleep(1500);
+        Console.Clear();
+    }
+} while (!iscorrect);
+
+static bool Istriangle(double a, double b, double c)
+{
+    return a + b > c && a + c > b && b + c > a;
+}
+
+static double calculatep (double a, double b , double c)
+{
+    double p = (a + b + c) / 2;
+    return Math.Sqrt(p * (p - a) * (p - b) * (p - c));
+}
+
+
+
+
+
+
+
+
+
+
+

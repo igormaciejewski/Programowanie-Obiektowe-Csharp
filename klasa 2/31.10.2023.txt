@@ -1,0 +1,119 @@
+
+            /*
+            int[] tabInt = new int[5];
+            //inicjalizacja tablicy 
+            tabInt[0] = 1;
+            tabInt[1] = 15;
+            int[] tabINT2 = { 1, 4, 6 };
+            //Napisz program, który pobiera od użytkownika 10 liczb całkowitych i zapisuje je w tablicy.
+            //Następnie program wyświetla sumę wszystkich elementów tablicy.
+            int[] TAB3 = new int[10];
+            int suma = 0;
+            for (int i = 0; i < TAB3.Length; i++)
+            {
+                Console.WriteLine("podaj liczbe");
+                TAB3[i] = int.Parse(Console.ReadLine());
+                suma += TAB3[i];
+            }
+            Console.WriteLine($"suma rowna sie: {suma}");
+            */
+            //Napisz program, który pobiera od użytkownika 10 liczb całkowitych i zapisuje je w tablicy.
+            //Następnie program wyświetla sumę wszystkich elementów tablicy.
+            //W celu zabezpieczenia programu przed niepoprawnymi danymi wejściowymi, użyliśmy metody int.TryParse(), która pozwala na sprawdzenie, czy wprowadzona wartość jest liczbą całkowitą.Jeśli użytkownik wprowadzi niepoprawną wartość, program wyświetli stosowny komunikat i poprosi o ponowne wprowadzenie liczby.
+            /*int[] TAB3 = new int[10];
+            int suma = 0;
+            for (int i = 0; i < TAB3.Length; i++)
+            {
+                try
+                {
+                    Console.WriteLine("podaj liczbe");
+                    TAB3[i] = int.Parse(Console.ReadLine());
+                    suma += TAB3[i];
+                    Console.WriteLine($"suma na ten moment rowna sie: {suma}");
+                }
+                catch (FormatException)
+                {
+                    Console.WriteLine("zle dane pedale");
+                    break;
+                }
+
+            }
+            */
+            //V2
+            /*
+            int[] numbers = new int[5];
+            int sum2 = 0;
+
+            for (int i = 0; i < numbers.Length; i++)
+            {
+                Console.WriteLine("Podaj liczbę całkowitą:");
+                string input = Console.ReadLine();
+
+                if (int.TryParse(input, out int number))
+                {
+                    numbers[i] = number;
+                }
+                else
+                {
+                    Console.WriteLine("Niepoprawna wartość. Wprowadź liczbę całkowitą");
+                    i--;
+                }
+            }
+            for (int i = 0 ; i < numbers.Length ; i++)
+            {
+                sum2 += numbers[i];
+            }
+            Console.WriteLine($"suma wynosi: {sum2}");
+            */
+            //Napisz program, który pobiera od użytkownika 10 liczb całkowitych i zapisuje je w tablicy
+,           //a następnie wyświetla sumę wszystkich elementów tablicy.
+            //Kod ten wykorzystuje metodę GetIntegerFromUser(),
+            //która pobiera od użytkownika liczbę całkowitą i zwraca ją.
+            //Jeśli użytkownik wprowadzi niepoprawną wartość, 
+            //funkcja wyświetli stosowny komunikat i poprosi o ponowne wprowadzenie liczby. 
+            //Funkcja CalculateSum(int[] numbers) przyjmuje tablicę liczb całkowitych i zwraca ich sumę.
+
+
+          // Zad 3
+          // Napisz program, który pobiera od użytkownika 10 liczb całkowitych i zapisuje je w tablicy, a następnie wyświetla sumę wszystkich elementów tablicy. Kod ten wykorzystuje metodę GetIntegerFromUser(),
+          // która pobiera od użytkownika liczbę całkowitą i zwraca ją.Jeśli użytkownik wprowadzi niepoprawną wartość, funkcja wyświetli stosowny komunikat i poprosi o ponowne wprowadzenie liczby. 
+          // Funkcja CalculateSum(int[] numbers) przyjmuje tablicę liczb całkowitych i zwraca ich sumę.który pobiera od użytkownika 10 liczb całkowitych i zapisuje je w tablicy.Następnie program wyświetla sumę wszystkich elementów tablicy.
+          int[] numbers = new int[5];
+          int sum = 0;
+          for (int i = 0; i < 5; i++) 
+          {
+              numbers[i] = GetIntegerFromUser();
+          
+          
+          }
+          sum = calculatesum(numbers);
+          Console.WriteLine($"suma wszystkich elementow tablicy wynosi {sum}");
+
+      }
+
+      static int GetIntegerFromUser()
+      {
+          while (true)
+          {
+              Console.WriteLine("Podaj liczbę całkowitą:");
+              string input = Console.ReadLine();
+
+              if (int.TryParse(input, out int number))
+              {
+                  return number;
+              }
+              else
+              {
+                  Console.WriteLine("Niepoprawna wartość. Wprowadź liczbę całkowitą");
+              }
+          }
+      }
+      static int calculatesum(int[] numbers)
+      {
+          int sum = 0;
+          for (int i = 0;i < numbers.Length;i++)
+          {
+              sum += numbers[i];
+          }
+          return sum;
+      }

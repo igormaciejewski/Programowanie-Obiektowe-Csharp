@@ -1,0 +1,59 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ConsoleApp8
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            //funkcja statyczna, któa pozwala wprowadzić rozmiar tablicy i nazwę
+            //funkcja statyczna, która ustawia elementy tablicy (SetArray) 
+            //funkcja statyczna, która wyświetla zawartość tablicy (DisplayArray)
+            int[] tabA = CreateArray("tablicy1");
+            setArray(tabA);
+            displayarray(tabA);
+            
+
+
+
+
+        }
+        public static int[] CreateArray(string name)
+        {
+            Console.Write($"Podaj rozmiar tablicy <0 ; {uint.MaxValue}> {name}: ");
+            uint size = 0;
+            try
+            {
+                size = uint.Parse(Console.ReadLine());
+                if (size <= 0) throw new ArgumentException("\nRozmiar tablicy musi być dodatni");
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("wystapil blad {0}", e.Message);
+            }
+
+            int[] array = new int[size];
+            return array;
+        }
+        public static void setArray(int[] tabA)
+        {
+            for (int i = 0; i < tabA.Length; i++)
+            {
+                Console.Write($"Podaj zawartosc dla {i + 1} Miejsca, pozostale miesca do wypelnienia {tabA.Length - 1 - i} : ");
+                tabA[i] = int.Parse(Console.ReadLine());
+            }
+        }
+        public static void displayarray(int[] tabA)
+        {
+            Console.WriteLine("Tak wyglada twoja tablica");
+            for (int i = 0;i < tabA.Length;i++)
+            {
+                Console.WriteLine(tabA[i]);
+            }
+        }
+    }
+}

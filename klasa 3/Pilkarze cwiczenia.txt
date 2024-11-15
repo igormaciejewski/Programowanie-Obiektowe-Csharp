@@ -1,0 +1,114 @@
+using System;
+using System.Collections.Generic;
+
+namespace ConsoleApp46
+{
+    internal class Program
+    {
+        internal class Footballer
+        {
+            public string Name { get; set; }
+            public int Goals { get; set; }
+            public int Assists { get; set; }
+            public string Club { get; set; }
+            public virtual void DisplayInfo()
+            {
+                Console.WriteLine($"Piłkarz: {Name}, Statystyki: {Goals} Goli, {Assists} Asyst, Klub: {Club}");
+            }
+
+        }
+
+        internal class GA : Footballer
+        {
+            public int Gaa;
+            public GA(string name, int goals, int assists, string club, int gaa)
+            {
+                Name = name;
+                Goals = goals;
+                Assists = assists;
+                Club = club;
+                Gaa = gaa;
+            }
+            public override void DisplayInfo()
+            {
+                base.DisplayInfo();
+                Console.WriteLine($", G+A: {Gaa}");
+            }
+        }
+
+        internal class Isfromeurope : Footballer
+        {
+            public bool Isfrome;
+
+            public Isfromeurope(string name, int goals, int assists, string club, bool isfrome)
+            {
+                Name = name;
+                Goals = goals;
+                Assists = assists;
+                Club = club;
+                Isfrome = isfrome;
+            }
+
+            public override void DisplayInfo()
+            {
+                base.DisplayInfo();
+                if (Isfrome)
+                {
+                    Console.WriteLine(", Piłkarz jest z Europy");
+                }
+                else
+                {
+                    Console.WriteLine(", Piłkarz nie jest z Europy");
+                }
+            }
+        }
+
+        static void Main(string[] args)
+        {
+            Console.WriteLine("Podaj ilu chcesz piłkarzy");
+            int n = int.Parse(Console.ReadLine());
+
+            // Lista przechowująca piłkarzy
+            List<Footballer> footballers = new List<Footballer>();
+
+            for (int i = 0; i < n; i++)
+            {
+                Console.WriteLine("Podaj imię piłkarza");
+                string Name = Console.ReadLine();
+                Console.WriteLine("Podaj liczbę goli");
+                int goals = int.Parse(Console.ReadLine());
+                Console.WriteLine("Podaj liczbę asyst");
+                int assists = int.Parse(Console.ReadLine());
+                Console.WriteLine("Podaj jego klub");
+                string club = Console.ReadLine();
+
+                Console.WriteLine("Czy chcesz obliczyć jego G+A, czy wpisać, czy jest z Europy? (Wybierz 1/2)");
+                int liczba = int.Parse(Console.ReadLine());
+
+                if (liczba == 1)
+                {
+                    int ga = goals + assists;
+                    GA player = new GA(Name, goals, assists, club, ga);
+                    footballers.Add(player); // Dodanie piłkarza do listy
+                }
+                else if (liczba == 2)
+                {
+                    Console.WriteLine("Czy piłkarz jest z Europy? (tak/nie)");
+                    string iseurope = Console.ReadLine();
+                    bool iseurope2 = iseurope.ToLower() == "tak";
+                    Isfromeurope player = new Isfromeurope(Name, goals, assists, club, iseurope2);
+                    footballers.Add(player); // Dodanie piłkarza do listy
+                }
+            }
+
+            // Po zakończeniu wprowadzania wyświetl wszystkich piłkarzy
+            Console.WriteLine("\nInformacje o wszystkich piłkarzach:");
+            foreach (var footballer in footballers)
+            {
+                footballer.DisplayInfo();
+            }
+
+            Console.ReadKey();
+        }
+    }
+}

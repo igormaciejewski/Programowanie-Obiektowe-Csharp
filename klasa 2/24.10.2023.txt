@@ -1,0 +1,79 @@
+try
+{
+    Console.WriteLine("Podaj dwie liczby");
+
+    Console.Write("Podaj x: ");
+    int x = int.Parse(Console.ReadLine());
+
+    Console.Write("Podaj y: ");
+    int y = int.Parse(Console.ReadLine());
+
+    Console.Write($"\nWynik dzielenia liczb ");
+    Console.ForegroundColor = ConsoleColor.Green;
+    Console.WriteLine($"{x} / {y} = {x / y}");
+    Console.ResetColor();
+}
+catch (DivideByZeroException)
+{
+    Console.WriteLine($"Błąd: dzielenie przez zero");
+}
+catch (FormatException)
+{
+    Console.WriteLine($"Błąd: błędny format danych");
+}
+catch (OverflowException)
+{
+    Console.WriteLine($"Błąd: wartość podana przez użytkownika przekracza zakres liczby<{int.MinValue};{int.MaxValue}>");
+}
+catch (Exception ex)
+{
+    Console.WriteLine($"Błąd: {ex.Message}");
+}
+finally
+{
+    Console.WriteLine("\n\nDziękujemy za korzystanie z programu");
+}
+
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace igormaciejewski_2e_gr1
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            //napisz program ktory pobiera wiek od 2 osob i napisz ich sredni wiek , zabezpiecz program
+            bool iscorrect = false;
+            do
+            {
+                try
+                {
+                    Console.WriteLine("niech pierwsza osoba poda swoj wiek");
+                    double wiek1 = int.Parse(Console.ReadLine());
+                    Console.WriteLine("niech druga osoba poda swoj wiek");
+                    double wiek2 = int.Parse(Console.ReadLine());
+                    Console.WriteLine($"srednia wieku to {(wiek1 + wiek2) / 2} ");
+                    iscorrect = true;
+                }
+                catch (FormatException ex)
+                {
+                    Console.WriteLine("zly format");
+                }
+                catch (OverflowException ex)
+                {
+                    Console.WriteLine($"za dluga wartosc < {int.MinValue} ; {int.MaxValue} >");
+                }
+                finally
+                {
+                    Console.WriteLine("Dziekuje za uzycie programu");
+                } 
+            }   
+            while (!iscorrect);
+        }
+    }
+}
