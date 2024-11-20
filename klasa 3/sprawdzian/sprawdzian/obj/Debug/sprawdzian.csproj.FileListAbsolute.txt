@@ -1,0 +1,7 @@
+C:\Users\spide\source\repos\sprawdzian\sprawdzian\bin\Debug\sprawdzian.exe.config
+C:\Users\spide\source\repos\sprawdzian\sprawdzian\bin\Debug\sprawdzian.exe
+C:\Users\spide\source\repos\sprawdzian\sprawdzian\bin\Debug\sprawdzian.pdb
+C:\Users\spide\source\repos\sprawdzian\sprawdzian\obj\Debug\sprawdzian.csproj.AssemblyReference.cache
+C:\Users\spide\source\repos\sprawdzian\sprawdzian\obj\Debug\sprawdzian.csproj.CoreCompileInputs.cache
+C:\Users\spide\source\repos\sprawdzian\sprawdzian\obj\Debug\sprawdzian.exe
+C:\Users\spide\source\repos\sprawdzian\sprawdzian\obj\Debug\sprawdzian.pdb
